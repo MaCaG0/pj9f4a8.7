@@ -1,43 +1,16 @@
 services:
-  Sweb_macago:
-    image: php:8.3-apache
-    container_name: Cweb_macago
-    ports:
-      - "8080:80"
+  apache:
+    image: httpd:latest
+    container_name: apache-container
     volumes:
-      - Vapl_macago:/var/www/html
-    networks:
-      - pj9f4a84_macago
+      - ./codi/starship-sorades-13k:/usr/local/apache2/htdocs
+    expose:
+      - 80
 
-  Smysql_macago:
-    image: mysql:9.1
-    container_name: Cmysql_macago
-    environment:
-      MYSQL_ROOT_PASSWORD: Fje2425@
-      MYSQL_DATABASE: BD_macago
+  nginx:
+    image: nginx:latest
+    container_name: nginx-load-balancer
     ports:
-      - "33306:3306"
+      - "80:80"
     volumes:
-      - dades_macago:/var/lib/mysql
-    networks:
-      - pj9f4a84_macago
-
-volumes:
-  Vapl_macago:
-    name: Vapl_macago
-    driver: local
-    labels:
-      description: Vdades_macago
-  dades_macago:
-    name: dades_macago
-    driver: local
-    labels:
-      description: Vdades_macago
-
-networks:
-  pj9f4a84_macago:
-    driver: bridge
-    labels:
-      description: Xpj9f4a84_macago
-
-     
+      - ./nginx.conf:/etc/nginx/nginx.conf

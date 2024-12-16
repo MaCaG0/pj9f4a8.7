@@ -10,10 +10,10 @@ NUM_CPUS = 2
 MEMORIA_RAM = 2048
 NOM_MAQUINA = "pj9f4a87-grup5"
 HOSTNAME = "pj9f4a87-grup5.fjeclot.net"
-CARPETA_MAQ_FIS1 = "../app1/codi"
-CARPETA_MAQ_FIS2 = "../app2/codi"
-CARPETA_MAQ_VIR1 = "/home/vagrant/app1/codi"
-CARPETA_MAQ_VIR2= "/home/vagrant/app2/codi"
+CARPETA_MAQ_FIS1 = "../app1"
+CARPETA_MAQ_FIS2 = "../app2"
+CARPETA_MAQ_VIR1 = "/home/vagrant/app1"
+CARPETA_MAQ_VIR2= "/home/vagrant/app2"
 
 #PORT_VIR1 = 80
 PORT_FIS1 = 8000
