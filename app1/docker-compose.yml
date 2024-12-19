@@ -1,16 +1,18 @@
 services:
   apache:
     image: httpd:latest
-    container_name: apache-container
     volumes:
       - ./codi/starship-sorades-13k:/usr/local/apache2/htdocs
     expose:
-      - 80
+      - "80"
 
   nginx:
     image: nginx:latest
     container_name: nginx-load-balancer
     ports:
-      - "80:80"
+      - "80:8000"  
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf 
+    depends_on:
+      - apache
+
